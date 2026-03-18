@@ -88,8 +88,8 @@ const RunningClub = () => (
       >
         <h2 className="font-display text-4xl mb-8">COMMUNITY</h2>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-16">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="aspect-square bg-warm-espresso/5 rounded-xl" />
+          {communityPhotos.map((src, i) => (
+            <img key={i} src={src} alt={`Running community ${i + 1}`} className="aspect-square object-cover rounded-xl" loading="lazy" />
           ))}
         </div>
 
