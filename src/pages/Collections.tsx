@@ -3,6 +3,13 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
+import {
+  LeggingsIllustration, SportsBraIllustration, JacketIllustration, LongSleeveIllustration,
+  ShortsIllustration, TShirtIllustration, VestIllustration, CompressionTightIllustration,
+} from "@/components/ClothingIllustrations";
+
+const womenIllustrations = [LeggingsIllustration, SportsBraIllustration, JacketIllustration, LongSleeveIllustration];
+const menIllustrations = [ShortsIllustration, TShirtIllustration, VestIllustration, CompressionTightIllustration];
 
 const womenProducts = [
   { name: "High-Rise Run Tight", price: "€89", gradient: "linear-gradient(135deg, #FFD6E0, #E8DCFF)" },
