@@ -71,6 +71,7 @@ const RunningClub = () => (
         <p className="font-mono text-[9px] tracking-[0.2em] text-warm-espresso/40 mb-4">NEXT RUN</p>
         <h3 className="font-display text-3xl mb-2">RETIRO PARK, MADRID</h3>
         <p className="font-mono text-xs text-warm-espresso/60">April 5th, 2026 · 8:00 AM</p>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
