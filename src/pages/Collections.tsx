@@ -1,78 +1,192 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 
-const collections = [
-  {
-    num: "01",
-    title: "GET YOUR HIGH SS25",
-    desc: "Spring/Summer launch — performance meets identity.",
-    bg: "hsl(350 35% 85%)",
-    cta: "SHOP NOW",
-    ctaColor: "bg-soft-volcano text-primary-foreground",
-    enabled: true,
-  },
-  {
-    num: "02",
-    title: "BB × CLASSPASS EXCLUSIVE",
-    desc: "Members-only drop — unlock with your membership.",
-    bg: "hsl(228 87% 90%)",
-    cta: "CLASSPASS MEMBERS ONLY — UNLOCK",
-    ctaColor: "bg-sky-blue text-primary-foreground",
-    enabled: true,
-  },
-  {
-    num: "03",
-    title: "TRAIL SERIES",
-    desc: "Designed for outdoor terrain.",
-    bg: "hsl(25 40% 90%)",
-    cta: "COMING SOON",
-    ctaColor: "bg-warm-espresso/20 text-warm-espresso/40 cursor-not-allowed",
-    enabled: false,
-  },
+const womenProducts = [
+  { name: "High-Rise Run Tight", price: "€89", gradient: "linear-gradient(135deg, #FFD6E0, #E8DCFF)" },
+  { name: "Trail Bra Pro", price: "€65", gradient: "linear-gradient(135deg, #FFE8DF, #FFD6CC)" },
+  { name: "Wind Shell Jacket", price: "€145", gradient: "linear-gradient(135deg, #E8D5FF, #FFB3C6)" },
+  { name: "Seamless Long Sleeve", price: "€72", gradient: "linear-gradient(135deg, #FFF8F4, #FFE0D0)" },
+];
+
+const menProducts = [
+  { name: "Run Pace Short", price: "€75", gradient: "linear-gradient(135deg, #0F0F0F, #2A2522)" },
+  { name: "Trail Run Tee", price: "€68", gradient: "linear-gradient(135deg, #1A1210, #3D3530)" },
+  { name: "Wind Vest", price: "€120", gradient: "linear-gradient(135deg, #0F0F0F, #1E2A3A)" },
+  { name: "Compression Tight", price: "€85", gradient: "linear-gradient(135deg, #1A1210, #2C2018)" },
 ];
 
 const Collections = () => (
-  <div className="min-h-screen bg-soft-peach text-warm-espresso">
+  <div className="min-h-screen bg-background text-foreground">
     <Navbar />
-    <div className="max-w-5xl mx-auto px-6 pt-24 pb-20">
-      <Link to="/" className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-warm-espresso/60 hover:text-soft-volcano transition-colors mb-12">
-        <ArrowLeft size={14} /> BACK
-      </Link>
 
-      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-        <h1 className="font-display text-6xl md:text-8xl mb-4">THE DROPS</h1>
-        <p className="font-mono text-xs tracking-[0.2em] text-warm-espresso/50 mb-16">
-          LIMITED COLLECTIONS. BUILT FOR THE OBSESSED.
-        </p>
-      </motion.div>
-
-      <div className="space-y-8">
-        {collections.map((c, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="rounded-2xl overflow-hidden border border-warm-espresso/10"
-            style={{ backgroundColor: c.bg }}
+    {/* TOP HEADER */}
+    <div
+      className="pt-16"
+      style={{ background: "linear-gradient(90deg, #FF8C6B, #7B93F5)" }}
+    >
+      <div className="px-6 py-16 md:py-24 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1
+            className="font-display text-4xl md:text-7xl mb-4"
+            style={{ color: "#FFFFFF" }}
           >
-            <div className="p-10 md:p-16">
-              <p className="font-mono text-[9px] tracking-[0.2em] text-warm-espresso/40 mb-4">
-                COLLECTION {c.num}
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl mb-4">{c.title}</h2>
-              <p className="font-mono text-sm text-warm-espresso/60 mb-8">{c.desc}</p>
-              <button
-                className={`font-mono text-xs tracking-[0.2em] px-8 py-3 rounded-full ${c.ctaColor} ${c.enabled ? "hover:opacity-90" : ""} transition-opacity`}
-                disabled={!c.enabled}
-              >
-                {c.cta}
-              </button>
-            </div>
-          </motion.div>
-        ))}
+            LIMITED DROP — GET YOUR HIGH COLLECTION
+          </h1>
+          <p className="font-mono text-sm md:text-base mb-6" style={{ color: "#FFFFFF" }}>
+            50 units each. Once it's gone, it's gone.
+          </p>
+          <p
+            className="font-display text-5xl md:text-7xl"
+            style={{ color: "#FFFFFF" }}
+          >
+            48:00:00
+          </p>
+        </motion.div>
+      </div>
+    </div>
+
+    {/* TWO COLUMNS */}
+    <div className="flex flex-col md:flex-row">
+      {/* LEFT — WOMEN ROSE SERIES */}
+      <div className="flex-1" style={{ backgroundColor: "#FFF8F4" }}>
+        {/* Header bar */}
+        <div className="px-6 py-4" style={{ backgroundColor: "#FF8C6B" }}>
+          <p
+            className="font-mono text-xs tracking-[0.2em] text-center"
+            style={{ color: "#FFFFFF" }}
+          >
+            WOMEN · ROSE SERIES · LIMITED DROP
+          </p>
+        </div>
+
+        {/* Product grid */}
+        <div className="grid grid-cols-2 gap-4 p-6">
+          {womenProducts.map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+              style={{ border: "1px solid rgba(61,53,48,0.08)" }}
+            >
+              <div
+                className="aspect-[3/4]"
+                style={{ background: p.gradient }}
+              />
+              <div className="p-4" style={{ backgroundColor: "#FFF8F4" }}>
+                <p
+                  className="font-display text-lg mb-1"
+                  style={{ color: "#3D3530" }}
+                >
+                  {p.name}
+                </p>
+                <p
+                  className="font-mono text-sm mb-2"
+                  style={{ color: "#FF8C6B" }}
+                >
+                  {p.price}
+                </p>
+                <span
+                  className="inline-block font-mono text-[9px] tracking-[0.15em] px-3 py-1 rounded-full mb-3"
+                  style={{ backgroundColor: "#D4B5A8", color: "#FFFFFF" }}
+                >
+                  ONLY 50 UNITS
+                </span>
+                <button
+                  onClick={() => toast({ title: "Added to waitlist! 🧡" })}
+                  className="w-full font-mono text-xs tracking-[0.2em] py-3 rounded-full transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "#FF8C6B", color: "#FFFFFF" }}
+                >
+                  ADD TO WAITLIST
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom banner */}
+        <div className="px-6 py-6 text-center" style={{ backgroundColor: "#FFE8DF" }}>
+          <p className="font-mono text-xs tracking-[0.15em]" style={{ color: "#3D3530" }}>
+            Designed for The Finisher. Soft on skin. Strong on trail.
+          </p>
+        </div>
+      </div>
+
+      {/* VERTICAL DIVIDER — desktop only */}
+      <div className="hidden md:block w-px" style={{ backgroundColor: "rgba(255,255,255,0.15)" }} />
+
+      {/* RIGHT — MEN SHADOW SERIES */}
+      <div className="flex-1" style={{ backgroundColor: "#1A1210" }}>
+        {/* Header bar */}
+        <div className="px-6 py-4" style={{ backgroundColor: "#7B93F5" }}>
+          <p
+            className="font-mono text-xs tracking-[0.2em] text-center"
+            style={{ color: "#FFFFFF" }}
+          >
+            MEN · SHADOW SERIES · LIMITED DROP
+          </p>
+        </div>
+
+        {/* Product grid */}
+        <div className="grid grid-cols-2 gap-4 p-6">
+          {menProducts.map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+              style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+            >
+              <div
+                className="aspect-[3/4]"
+                style={{ background: p.gradient }}
+              />
+              <div className="p-4" style={{ backgroundColor: "#1A1210" }}>
+                <p
+                  className="font-display text-lg mb-1"
+                  style={{ color: "#FFFFFF" }}
+                >
+                  {p.name}
+                </p>
+                <p
+                  className="font-mono text-sm mb-2"
+                  style={{ color: "#7B93F5" }}
+                >
+                  {p.price}
+                </p>
+                <span
+                  className="inline-block font-mono text-[9px] tracking-[0.15em] px-3 py-1 rounded-full mb-3"
+                  style={{ backgroundColor: "#4A5A8A", color: "#FFFFFF" }}
+                >
+                  ONLY 50 UNITS
+                </span>
+                <button
+                  onClick={() => toast({ title: "Added to waitlist! 💪" })}
+                  className="w-full font-mono text-xs tracking-[0.2em] py-3 rounded-full transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "#7B93F5", color: "#FFFFFF" }}
+                >
+                  ADD TO WAITLIST
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom banner */}
+        <div className="px-6 py-6 text-center" style={{ backgroundColor: "#0F0F0F" }}>
+          <p className="font-mono text-xs tracking-[0.15em]" style={{ color: "#FFFFFF" }}>
+            Built for The Radical Runner. No limits. No excuses.
+          </p>
+        </div>
       </div>
     </div>
   </div>

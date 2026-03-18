@@ -60,7 +60,7 @@ const Stores = () => (
           Browse the full BB Athletics collection from anywhere.
         </p>
         <Link
-          to="/women"
+          to="/collections"
           className="inline-block bg-warm-espresso text-soft-peach font-mono text-xs tracking-[0.2em] px-8 py-3 rounded-full hover:opacity-90 transition-opacity"
         >
           ENTER THE STORE
