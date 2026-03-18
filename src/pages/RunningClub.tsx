@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 
+const communityPhotos = [
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+  "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400",
+  "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400",
+  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400",
+  "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400",
+  "https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?w=400",
+];
+
 const events = [
   { city: "Madrid", date: "April 5, 2026", distance: "10K", level: "Intermediate" },
   { city: "Barcelona", date: "April 19, 2026", distance: "5K", level: "Beginner" },
