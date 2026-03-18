@@ -71,8 +71,13 @@ const RunningClub = () => (
         <p className="font-mono text-[9px] tracking-[0.2em] text-warm-espresso/40 mb-4">NEXT RUN</p>
         <h3 className="font-display text-3xl mb-2">RETIRO PARK, MADRID</h3>
         <p className="font-mono text-xs text-warm-espresso/60 mb-6">April 5th, 2026 · 8:00 AM</p>
-        <div className="bg-warm-espresso/5 rounded-xl h-48 flex items-center justify-center">
-          <p className="font-mono text-[10px] tracking-[0.2em] text-warm-espresso/30">MAP PLACEHOLDER</p>
+        <div className="rounded-xl overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200"
+            alt="Retiro Park, Madrid"
+            className="w-full h-48 md:h-64 object-cover rounded-xl"
+            loading="lazy"
+          />
         </div>
       </motion.div>
 
