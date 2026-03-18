@@ -9,6 +9,7 @@ import RunningClub from "./pages/RunningClub.tsx";
 import Collections from "./pages/Collections.tsx";
 import Events from "./pages/Events.tsx";
 import Stores from "./pages/Stores.tsx";
+import AIChatBubble from "./components/AIChatBubble";
 
 const queryClient = new QueryClient();
 
