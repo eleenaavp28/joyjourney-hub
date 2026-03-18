@@ -156,9 +156,11 @@ const Collections = () => (
               style={{ border: "1px solid rgba(255,255,255,0.06)" }}
             >
               <div
-                className="aspect-[3/4]"
+                className="aspect-[3/4] relative flex items-center justify-center"
                 style={{ background: p.gradient }}
-              />
+              >
+                {(() => { const Illus = menIllustrations[i]; return <Illus />; })()}
+              </div>
               <div className="p-4" style={{ backgroundColor: "#1A1210" }}>
                 <p
                   className="font-display text-lg mb-1"
