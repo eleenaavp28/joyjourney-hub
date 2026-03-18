@@ -27,6 +27,7 @@ const App = () => (
           <Route path="/stores" element={<Stores />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <AIChatBubble />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
