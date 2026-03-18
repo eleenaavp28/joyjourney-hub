@@ -3,6 +3,13 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
+import {
+  LeggingsIllustration, SportsBraIllustration, JacketIllustration, LongSleeveIllustration,
+  ShortsIllustration, TShirtIllustration, VestIllustration, CompressionTightIllustration,
+} from "@/components/ClothingIllustrations";
+
+const womenIllustrations = [LeggingsIllustration, SportsBraIllustration, JacketIllustration, LongSleeveIllustration];
+const menIllustrations = [ShortsIllustration, TShirtIllustration, VestIllustration, CompressionTightIllustration];
 
 const womenProducts = [
   { name: "High-Rise Run Tight", price: "€89", gradient: "linear-gradient(135deg, #FFD6E0, #E8DCFF)" },
@@ -78,9 +85,11 @@ const Collections = () => (
               style={{ border: "1px solid rgba(61,53,48,0.08)" }}
             >
               <div
-                className="aspect-[3/4]"
+                className="aspect-[3/4] relative flex items-center justify-center"
                 style={{ background: p.gradient }}
-              />
+              >
+                {(() => { const Illus = womenIllustrations[i]; return <Illus />; })()}
+              </div>
               <div className="p-4" style={{ backgroundColor: "#FFF8F4" }}>
                 <p
                   className="font-display text-lg mb-1"
@@ -147,9 +156,11 @@ const Collections = () => (
               style={{ border: "1px solid rgba(255,255,255,0.06)" }}
             >
               <div
-                className="aspect-[3/4]"
+                className="aspect-[3/4] relative flex items-center justify-center"
                 style={{ background: p.gradient }}
-              />
+              >
+                {(() => { const Illus = menIllustrations[i]; return <Illus />; })()}
+              </div>
               <div className="p-4" style={{ backgroundColor: "#1A1210" }}>
                 <p
                   className="font-display text-lg mb-1"
